@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="text-center">
+
+<button class="btn btn-sm mt-5" onclick="logout()">Log out</button>
+<h1>User DashBoard</h1> <br>
+<p id="user" class="h3"></p><br>
+<p id="data" class="h5"></p>
+
+
+
+<!-- Footer -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+ <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+      
+ <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+ <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+ <!-- Add Firebase products that you want to use -->
+ <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script src="../js/firebase.js"></script>
+
+
+<script>
+     auth.onAuthStateChanged(user =>{
+         
+          if(user){
+            console.log(user.email);
+            document.getElementById("user").innerHTML = "Hello "+user.email;
+          }else{
+            window.location.replace("../index.html");  
+          }
+        })
+
+        db.collection('affiliate').doc("affiliate_id").get().then(ans =>{
+          document.getElementById("data").innerHTML = "Your Referal code is => : "+ans.data().code;
+       // console.log("Document data:", ans);
+           
+        }).catch(err =>{
+            console.log(err);
+        })
+</script>
+</body>
+</html>

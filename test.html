@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test | Effectivewing</title>
+    <link rel="stylesheet" href="">
+	<link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+
+
+// this one I like it, it will help to check wearther
+// const options = {
+//   method: 'GET',
+//   url: 'https://rapidapi.p.rapidapi.com/weather',
+//   params: {
+//     q: 'Kokstad,RSA',
+//     lat: '0',
+//     lon: '0',
+//     callback: 'test',
+//     id: '2172797',
+//     lang: 'null',
+//     units: '"metric" or "imperial"',
+//     mode: 'xml, html'
+//   },
+//   headers: {
+//     'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+//     'x-rapidapi-key': '5c80a21b99msh0504609cc783ec2p194e11jsnb228c9f1ab95'
+//   }
+// };
+
+const options = {
+  method: 'GET',
+  url: 'https://api.fungenerators.com/fact/random?category=Countries&subcategory=USA',
+ // params: {domain: 'effectivewing.com'},
+ 
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
+
+
+    </script>
+</body>
+</html>
