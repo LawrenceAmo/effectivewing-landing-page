@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test | Effectivewing</title>
+    <link rel="stylesheet" href="">
+	<link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div class="row my-5">
+    <div class="col-12 border rounded p-5 text-center">
+        <button id="talk" onclick="talk()" class="btn btn-sm btn-info btn-outline-info rounded">talk</button> <br>
+        <p class="" id="rec"></p>
+        <p class="border mx-auto rounded p-3 mt-5 w-50" id="content"></p>
+    </div>
+</div>
+<!-- Footer -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script>
+var content = document.getElementById("content");
+var rec = document.getElementById("rec");
+
+const greetings = ['I am fine, how are you','I am doing well, what about you?'];
+const hello = ['Hello','Hi','Hey'];
+
+const SpeechRecognition = Window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+
+recognition.onstart = function(){
+    rec.textContent ="Voice is activated...";
+   // console.log("Voice is activated");
+}
+
+recognition.onspeechend = function () {
+    rec.textContent ="";
+}
+recognition.onresult = function (event) {
+   const current = event.resultIndex;
+   const transcript = event.results[current][0].transcript;
+    content.textContent = transcript;
+    readOutLoud(transcript);
+}
+
+function talk() {
+ recognition.start();
+}
+
+function readOutLoud(message) {
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = "I dont know what you said, please try again";
+   
+    if (message.includes('how are you')) {
+        const finalText = greetings[Math.floor(Math.random() * greetings.length)]
+        speech.text = finalText;
+    }
+    if (message.includes('hello')) {
+        const finalText = hello[Math.floor(Math.random() * hello.length)]
+        speech.text = finalText;
+    }
+    if (message.includes('your name')) {
+          speech.text = "My name is Effective Wing.";
+    }
+    speech.volume = 1;
+    speech.rate = 1;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+</body>
+</html>
