@@ -4,72 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In | effectivewing</title>
-
-    <link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/head.js"></script>
+    <script src="../js/vue.js"></script>
+    <span id="head">
+    <head-links></head-links>
+    </span>
 </head>
 <body >
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white scrolling-navbar shadow-none my-0" id="navbar">
-        <div class="container my-0">
-    
-          <!-- Brand -->
-          <a class="navbar-brand m-0 p-0" href="/" >
-            <img src="../img/logo.png" width="200" height="50px" class=" p-0 m-0 rounded-top rounded-right rounded-bottom rounded-left rounded-circle" alt="">
-          </a>
-    
-          <!-- Collapse -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <!-- Links -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-            <!-- Left -->
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item  rounded">
-                <a class="nav-link" href="/">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pg/courses" >Courses</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pg/pricing " >Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pg/about" >About</a>
-              </li>
-              <li class="nav-item d-none">
-                <a href="https://www.facebook.com/effectivewing" class="nav-link" >
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>           
-              <li class="nav-item ">
-                <a href="../pg/signin.html" class="nav-link border border-info rounded py-1">Signin
-                  <i class="fas fa-user mr-1 "></i>
-                </a>
-              </li>
-              <li class="nav-item ">
-                <a href="../pg/register.html" class="nav-link border border-info rounded py-1">Register
-                  <i class="fas fa-user-plus mr-1 "></i>
-                </a>
-              </li>
-             
-              
-            </ul>
-           
-          </div>
-    
-        </div>
-      </nav>
+  <header class=""id="navbar">
+
+    <nav-bar></nav-bar>
+
+  </header>
 
 
     <main class="">
@@ -160,7 +108,191 @@
 		</div>
 		</div>   
     </main>
-     <body>
+
+	<footer class="page-footer font-small stylish-color-dark pt-4 w-100 position-bottom ">
+
+		<!-- Footer Links -->
+		<div class="container text-center text-md-left">
+
+			<!-- Grid row -->
+			<div class="row">
+
+				<!-- Grid column -->
+				<div class="col-md-4 mx-auto">
+
+					<!-- Content -->
+					<h5 class="font-weight-bold text-uppercase mt-3 ">Effectivewing</h5>
+					<h6 class="font-weight-bold mb-3">e-Learning Platform</h6>
+					<p>The world is changing around us faster than ever. We're committed
+						to innovate and work like crazy to bring you content
+						and credentials to prepare you for the future.</p>
+
+				</div>
+				<!-- Grid column -->
+
+				<hr class="clearfix w-100 d-md-none">
+
+				<!-- Grid column -->
+				<div class="col-md-2 mx-auto">
+
+					<!-- Links -->
+					<h6 class="font-weight-bold text-uppercase mt-3 mb-4">Explore</h6>
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!">Courses</a>
+						</li>
+						<li>
+							<a href="#!">Coaching</a>
+						</li>
+						<li>
+							<a href="#!">Pricing</a>
+						</li>
+						<li>
+							<a href="#!">Affiliate</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+				<hr class="clearfix w-100 d-md-none">
+
+				<!-- Grid column -->
+				<div class="col-md-2 mx-auto">
+
+					<!-- Links -->
+					<h6 class="font-weight-bold text-uppercase mt-3 mb-4">Comapany</h6>
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!">About Us</a>
+						</li>
+						<li>
+							<a href="#!">Careers</a>
+						</li>
+						<li>
+							<a href="#!">Blog</a>
+						</li>
+
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+				<hr class="clearfix w-100 d-md-none">
+
+				<!-- Grid column -->
+				<div class="col-md-2 mx-auto">
+
+					<!-- Links -->
+					<h6 class="font-weight-bold text-uppercase mt-3 mb-4">Contact</h6>
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!">Support page</a>
+						</li>
+						<li>
+							<a href="#!">Contuct us</a>
+						</li>
+						<li>
+							<a href="#!">Facebook</a>
+						</li>
+						<li>
+							<a href="#!">Twitter</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+		</div>
+		<!-- Footer Links -->
+
+		<hr>
+
+		<!-- Call to action -->
+		<ul class="list-unstyled list-inline text-center py-2 d-flex justify-content-center" id="subscribe">
+
+			<li class="w-25 input-group p-3 d-none">
+				<span class="h5 font-weight-bold text-center text-white animated fadeInDown" id="msg">
+					Thank you for subscribing. Please Check your E-mail.
+				</span>
+				<div class="" id="addnames">
+					<div class="input-group-prepend">
+						<span class="input-group-text mb-3"><i class="fas fa-user"> Name</i></span>
+					</div>
+					<input type="text" class="form-control" placeholder="Your Name Please" aria-label="name" name="name"
+						id="subscribename" aria-describedby="basic-addon1">
+					<div class="input-group-prepend">
+						<span class="input-group-text rounded-right btn-sm btn-danger mb-3 " v-on:click="addname">
+							Confirm </span>
+					</div>
+				</div>
+			</li>
+
+			<li class="w-25 input-group p-3 email " id="addmails">
+				<div class="input-group mb-3" id="revmail"> <input type="hidden" name="identity" id="identity" value="<?php
+		  $date = new DateTime();
+			$date = $date->getTimestamp();
+		echo $date; 
+		
+		?>" class="d-none">
+					<div class="input-group-prepend">
+						<span class="input-group-text rounded-left"><i class="fas fa-envelope"> E-mail</i></span>
+					</div>
+					<input type="text" class="form-control" placeholder="Enter Your E-mail Please" name="email"
+						id="subscribemail" value="">
+					<div class="input-group-append">
+						<span class="input-group-text btn-danger cursor-pointer" v-on:click="addemail">subscribe</span>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+		<!-- Call to action -->
+		<hr>
+
+		<!-- Social buttons -->
+		<ul class="list-unstyled list-inline text-center">
+			<li class="list-inline-item">
+				<a href="https://www.facebook.com/effectivewing" target="_about:blank" class="btn-floating btn-fb mx-1">
+					<i class="fab fa-facebook-f"> </i>
+				</a>
+			</li>
+			<li class="list-inline-item">
+				<a class="btn-floating btn-tw mx-1">
+					<i class="fab fa-twitter"> </i>
+				</a>
+			</li>
+			<li class="list-inline-item">
+				<a class="btn-floating btn-gplus mx-1">
+					<i class="fab fa-google-plus-g"> </i>
+				</a>
+			</li>
+			<li class="list-inline-item">
+				<a class="btn-floating btn-li mx-1">
+					<i class="fab fa-linkedin-in"> </i>
+				</a>
+			</li>
+			<li class="list-inline-item">
+				<a class="btn-floating btn-dribbble mx-1">
+					<i class="fab fa-dribbble"> </i>
+				</a>
+			</li>
+		</ul>
+		<!-- Social buttons -->
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">© 2020 Copyright:
+			<a href="https://effectivewing.com/"> Effectivewing, </a> &nbsp; All rights reserved.
+		</div>
+		<!-- Copyright -->
+
+	</footer>
          <!-- Footer -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -170,8 +302,19 @@
         <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
         <script src="../js/firebase.js"></script>
-    </body>
+    
     <script>
+new Vue({ el: '#head' })
+  new Vue({ el: '#navbar' })
+  new Vue({ el: '#footer' })
+
+
+  auth.onAuthStateChanged(user =>{         
+		 if(user){            
+			window.location.replace("../pg/user.html");
+		 }
+	   })
+
 
     </script>
 </body>

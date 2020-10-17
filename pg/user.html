@@ -1,57 +1,205 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+<head >
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	<link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title></title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Montserrat:300,400,500">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="../js/vue.js"></script>
+  <span id="head">
+	<head-links></head-links>
+  </span>
+
+  <style>
+   table tr td{
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5;
+    font-weight: bold;     
+    font-size: 1rem;
+    color: darkslategrey;
+    }
+    .card-title p{
+      font-family: Montserrat, sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+      /* font-weight: 500; */
+    font-size: 1.2rem;
+    color: rgb(15, 15, 15);
+    }
+    .welcome{
+      font-family: Montserrat, sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+      /* font-weight: 500; */
+    font-size: 1.8rem;
+    color: rgb(22, 22, 22);
+    text-align: left;
+    }
+  </style>
 </head>
-<body class="text-center">
+<body class="text-center" >
+  <header class=""id="navbar">
+    <nav-bar></nav-bar>
+  </header> 
 
-<button class="btn btn-sm mt-5 btn-info mt-5 btn-outline-info rounded" onclick="logout()">Log out</button>
-<h1>User DashBoard</h1> <br>
-<p id="user" class="h3"></p><br>
-<p id="data" class="h5"></p>
+<main class=" my-auto py-5">
+      
+<div class="row mx-0  ">
+
+  <div class="col-md-3  border-right row-cols-1 mt-5 pt-5 " style="height: 80vh;">
+     <div class="">
+     </div>
+        <div class="card z-depth-2" style="height: 70vh;">
+          <img src="https://via.placeholder.com/300/09f/fff.png" alt="" sizes="" srcset="" class="rounded-circle  card-img-top border d-none" width="-50" height="300" alt="avater">
+          <div class="card-body">
+              <h4 class="card-title"> 
+                <p  class="username mt-3 h5 font-weight-bold"></p>
+                <p id="user" class="mt-2 h5 font-weight-bold"></p>
+              </h4> 
+              <p class="card-text " >   
+
+                    <table class="table">                      
+                       <tbody>
+                           <tr>                              
+                               <td class="">Coins</td>
+                               <td class="">EQ <span id="coin"></span> </td>                              
+                           </tr> 
+                           <tr>                              
+                            <td >Referals</td>
+                            <td id="referrals"> 0 </td>                              
+                        </tr> 
+                        <tr>                              
+                          <td>Balance</td>
+                          <td>$ <span id="balance"></span> </td>                              
+                      </tr> 
+                      <tr>                              
+                        <td>Code</td>
+                        <td id="data">$ 0.00 </td>                              
+                    </tr> 
+                       </tbody>
+                    </table>
+
+
+            </p>
+              <button class="btn btn-sm btn-info my-auto btn-outline-info rounded z-depth-2" onclick="logout()">Log out</button>
+          </div>
+       </div>
+  </div>
+
+  <div class="col-md-9 mt-5">
+    <div class="row mt-5 pb-4">
+      <p class="col-12 h3 welcome"> Hello <span id="welcome"></span>, Welcome</p>
+    </div>
+<div class="row mx-0 ">
+  <div class="col-md-6 d-flex align-items-stretch">
+   
+   <!--Card Primary-->
+   <div class="card light text-center z-depth-1 ">
+    <div class="card-body">
+      <h3 class="text-uppercase font-weight-bold amber-text mt-2 mb-3"><strong>News title</strong><i class="far fa-heart ml-3"></i></h3>
+      <p class=" mb-0">Ut enim ad minima veniam, quis nostrum exercita tionem ullam corporis
+        suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit
+        qui in ea voluptate non proident velit esse quam. </p>
+    </div>
+  </div>
+  <!--/.Card Primary-->
+
+
+  </div>
+  <div class="col-md-6 d-flex align-items-stretch">
+
+     <!--Panel-->
+     <div class="card card-body">
+      <h4 class="card-title">Panel title</h4>
+      <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium.</p>
+      <div class="flex-row">
+        <a class="card-link">Card link</a>
+        <a class="card-link">Another link</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <!--Panel-->
+    <div class="card card-body mt-5">
+      <h3 class="text-uppercase font-weight-bold amber-text mt-2 mb-3"><strong>News title</strong><i class="far fa-heart ml-3"></i></h3>
+      <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium.</p>
+      <div class="flex-row">
+        <a class="card-link">Card link</a>
+        <a class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row"></div>
+    
+
+  </div>
+</div>
 
 
 
-<!-- Footer -->
+</main>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
- <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
- <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-      
- <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
- <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
-
- <!-- Add Firebase products that you want to use -->
- <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
- <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
 <script src="../js/firebase.js"></script>
 
 
+
+
 <script>
+   new Vue({ el: '#head' })
+  new Vue({ el: '#navbar' })
+//  document.getElementById("test").innerHTML = sessionStorage.getItem("email");
+
+function userData(data){
+          document.getElementById("referrals").innerHTML = data.data().referrals;
+          document.getElementById("balance").innerHTML = data.data().balance;
+          document.getElementById("coin").innerHTML = data.data().coin;
+          document.getElementById("data").innerHTML = data.data().code;
+          document.querySelector("#welcome").innerHTML = data.data().firstName+" "+data.data().lastName;
+          document.querySelector(".username").innerHTML = data.data().firstName+" "+data.data().lastName;
+}
+
+
+  let email = sessionStorage.getItem("email");
      auth.onAuthStateChanged(user =>{
          
-          if(user){
-            console.log(user.email);
-            document.getElementById("user").innerHTML = "Hello "+user.email;
+          if(user){                      
+            document.getElementById("user").innerHTML = user.email;
+            
+           // sessionStorage.setItem("email", user.email);
           }else{
-            window.location.replace("../index.html");  
+            window.location.replace("../index.html");
           }
         })
 
-        db.collection('affiliate').doc("affiliate_id").get().then(ans =>{
-          document.getElementById("data").innerHTML = "Your Referal code is => : "+ans.data().code;
-       // console.log("Document data:", ans);
+        db.collection('User').where('email', '==', email).get().then(ans =>{
+         
+         ans.docs.forEach(data => {
+
+         userData(data);
+
+         });
+        
            
         }).catch(err =>{
             console.log(err);

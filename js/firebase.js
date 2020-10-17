@@ -21,13 +21,32 @@
           function signup() {
               var email = document.getElementById("email").value;
               var password = document.getElementById("password").value;
-          
-              auth.createUserWithEmailAndPassword(email, password).then(cred =>{               
-                  window.location.replace("user.html");                 
+              var first_name = document.getElementById("firstName").value;
+              var last_name = document.getElementById("lastName").value;
+              var cd = Date.now();
+              
+              auth.createUserWithEmailAndPassword(email, password).then(cred =>{
+                  sessionStorage.setItem("email", email);               
               }).catch(err =>{
                 document.getElementById("err").innerHTML = err.message;
                 document.getElementById("err").style.display = "block";
-              })     
+              })                          
+              
+              db.collection('User').add({                  
+                firstName: first_name,
+                lastName: last_name,
+                balance: 0,
+                referrals: 0,
+                uid: '',
+                email: email,
+                coin: 300,
+                code: cd
+              })
+
+              console.log(last_name);
+              console.log(email);
+
+      //  window.location.replace("user.html");  
           }
 
           /// Log out
@@ -44,7 +63,7 @@
             var password = document.getElementById("password").value;
 
             auth.signInWithEmailAndPassword(email, password).then(cred =>{
-               
+              sessionStorage.setItem("email", email);
                   window.location.replace("user.html");
                  
               }).catch(err =>{
@@ -52,6 +71,18 @@
                 document.getElementById("err").style.display = "block";
               })            
         }
+
+
+        auth.onAuthStateChanged(user =>{         
+          if(user){
+            document.getElementById("register").classList = "d-none "; 
+            document.getElementById("login").classList = "d-none ";
+            document.getElementById("logout").classList = "nav-item  py-0  ";
+           var admin = document.getElementById("admin");          
+           admin.classList =  "nav-link ml-2 ";          
+           admin.innerHTML = user.email;          
+          }
+        })
 
        
 

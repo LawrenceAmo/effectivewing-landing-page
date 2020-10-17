@@ -52,12 +52,18 @@ recognition.onresult = function (event) {
 }
 
 function talk() {
- recognition.start();
+    recognition.start();
 }
+
+setInterval(function(){ 
+   ////
+}, 4000);
 
 function readOutLoud(message) {
     const speech = new SpeechSynthesisUtterance();
-    speech.text = "I dont know what you said, please try again";
+    if (message.includes('Siri')) {
+
+        speech.text = message;//+" I dont know what you mean, please try again";
    
     if (message.includes('how are you')) {
         const finalText = greetings[Math.floor(Math.random() * greetings.length)]
@@ -68,13 +74,22 @@ function readOutLoud(message) {
         speech.text = finalText;
     }
     if (message.includes('your name')) {
-          speech.text = "My name is Effective Wing.";
+          speech.text = "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
     }
+    if (message.includes('go back')) {
+        speech.text = "Ok sharp. I will go back now";
+        setTimeout(function(){
+            window.location.replace("../index.html");  
+         }, 4000);       
+    }
+}
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
 
     window.speechSynthesis.speak(speech);
+    
+    
 }
 </script>
 </body>
