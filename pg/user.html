@@ -3,7 +3,8 @@
 
 <head >
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title></title>
   
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
@@ -24,20 +25,60 @@
     .card-title p{
       font-family: Montserrat, sans-serif;
     line-height: 1.5;
-    font-weight: bold;
-      /* font-weight: 500; */
+    font-weight: bold;      
     font-size: 1.2rem;
     color: rgb(15, 15, 15);
     }
     .welcome{
       font-family: Montserrat, sans-serif;
     line-height: 1.5;
-    font-weight: bold;
-      /* font-weight: 500; */
+    font-weight: bold;     
     font-size: 1.8rem;
     color: rgb(22, 22, 22);
     text-align: left;
     }
+    
+    .sidebar{
+      position: fixed;
+      margin-top: 120px;
+      width: 20%;
+      border-radius: 10px;
+      margin-left: 5px;
+     
+    }
+    .content{
+      width: 75%;
+      margin-top: 80px;     
+      border-radius: 10px;
+      margin-left: 5px;      
+    }
+     .card{
+      margin-left: 20px;
+    }
+
+    @media only screen and (max-width: 650px) {
+      .sidebar {
+        position: absolute;
+        width: 95%;
+    
+    }
+    .content{
+      position: absolute;
+      width: 95% !important;
+      margin-left: 10px;
+      margin-top: 650px;  
+    }
+    .contenttop{
+      display:flex;
+      flex-direction: column;
+    }
+    .welcome{
+      display: none;
+    }
+  }
+      
+  
+   
   </style>
 </head>
 <body class="text-center" >
@@ -45,15 +86,8 @@
     <nav-bar></nav-bar>
   </header> 
 
-<main class=" my-auto py-5">
-      
-<div class="row mx-0  ">
-
-  <div class="col-md-3  border-right row-cols-1 mt-5 pt-5 " style="height: 80vh;">
-     <div class="">
-     </div>
+      <div class="sidebar">
         <div class="card z-depth-2" style="height: 70vh;">
-          <img src="https://via.placeholder.com/300/09f/fff.png" alt="" sizes="" srcset="" class="rounded-circle  card-img-top border d-none" width="-50" height="300" alt="avater">
           <div class="card-body">
               <h4 class="card-title"> 
                 <p  class="username mt-3 h5 font-weight-bold"></p>
@@ -87,65 +121,56 @@
               <button class="btn btn-sm btn-info my-auto btn-outline-info rounded z-depth-2" onclick="logout()">Log out</button>
           </div>
        </div>
-  </div>
-
-  <div class="col-md-9 mt-5">
-    <div class="row mx-0 mt-5 pb-4">
-      <p class="col-12 h3 ml-md-3 welcome"> Hello <span id="welcome"></span>, Welcome</p>
-    </div>
-<div class="row mx-0 ">
-  <div class="col-md-6 d-flex align-items-stretch">
+      </div>
+<div class="content">
+  
+ <div class=" contenttop d-flex justify-content-between">
+  <div class="">
+    <p class=" h3 ml-md-3 welcome"> Hello <span id="welcome"></span>, Welcome</p>  
+    <!--Card Primary-->
+    <div class="card light text-center z-depth-1 ">
+     <div class="card-body">
+       <h3 class="text-uppercase font-weight-bold amber-text mt-2 mb-3"><strong>News title</strong><i class="far fa-heart ml-3"></i></h3>
+       <p class=" mb-0">Ut enim ad minima veniam, quis nostrum exercita tionem ullam corporis
+         suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit
+         qui in ea voluptate non proident velit esse quam. </p>
+     </div>
+   </div>
+   </div>
+   <!--/.Card Primary-->  
+  
    
-   <!--Card Primary-->
-   <div class="card light text-center z-depth-1 ">
-    <div class="card-body">
-      <h3 class="text-uppercase font-weight-bold amber-text mt-2 mb-3"><strong>News title</strong><i class="far fa-heart ml-3"></i></h3>
-      <p class=" mb-0">Ut enim ad minima veniam, quis nostrum exercita tionem ullam corporis
-        suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit
-        qui in ea voluptate non proident velit esse quam. </p>
-    </div>
-  </div>
-  <!--/.Card Primary-->
+      <div class="card card-body mt-5">
+       <h4 class="card-title">Panel title</h4>
+       <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+         fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+         deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+         accusantium doloremque laudantium.</p>
+       <div class="flex-row">
+         <a class="card-link">Card link</a>
+         <a class="card-link">Another link</a>
+       </div>
+     </div>
+ </div>
 
 
-  </div>
-  <div class="col-md-6 mt-sm-5 mt-md-0 mt-xs-5-flex align-items-stretch">    
-     <div class="card card-body">
-      <h4 class="card-title">Panel title</h4>
-      <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium.</p>
-      <div class="flex-row">
-        <a class="card-link">Card link</a>
-        <a class="card-link">Another link</a>
+
+    <div class="affiliate">
+      <div class="card card-body mt-5 ml-md-3">
+        <h3 class="text-uppercase font-weight-bold text-info mt-2 mb-3"><strong>Earn while chatting</strong><i class="fas fa-hand ml-3"></i></h3>
+        <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium.</p>
+        <div class="flex-row">
+          <a class="card-link">Card link</a>
+          <a class="card-link">Another link</a>
+        </div>
       </div>
     </div>
-  </div>
 
 </div>
 
-
-<div class="row mx-0">
-  <div class="col-12">
-     <div class="card card-body mt-5 ml-md-3">
-      <h3 class="text-uppercase font-weight-bold text-info mt-2 mb-3"><strong>Earn while chatting</strong><i class="fas fa-hand ml-3"></i></h3>
-      <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium.</p>
-      <div class="flex-row">
-        <a class="card-link">Card link</a>
-        <a class="card-link">Another link</a>
-      </div>
-    </div>
-  </div>
-</div> 
-
-  </div>
-</div>
-
-</main>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
