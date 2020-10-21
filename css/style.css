@@ -4,3 +4,22 @@
     font-family: Montserrat, sans-serif;
     font-weight: 500;
   }
+
+  .logintext{
+    width: 50%;	
+  }
+  .logininput{
+    width: 50%;
+  }
+  @media only screen and (max-width: 650px) {
+    .logintext {
+      display: none;
+    
+    }
+    .logininput{
+      width: 100% !important;
+      
+      margin: 0px;
+  
+    }
+  }

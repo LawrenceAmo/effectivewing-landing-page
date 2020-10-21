@@ -1,7 +1,3 @@
-
-
-
-
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
             apiKey: "AIzaSyBcLvo-SBRFOkiAZ9cdiE6rwQEnsSF-s_c",
@@ -16,8 +12,7 @@
           firebase.initializeApp(firebaseConfig);
           
           var auth = firebase.auth();
-          var db = firebase.firestore();  
-                  
+          var db = firebase.firestore();                    
 
           function signup() {
               var email = document.getElementById("email").value;
@@ -43,9 +38,7 @@
                 email: email,
                 coin: 300,
                 code: cd
-              })
-
-              
+              })        
           }
 
           /// Log out
@@ -54,7 +47,6 @@
               window.location.replace("../index.html");               
             })             
         }
-
 
           /// Log in
           function signin() {
@@ -71,7 +63,6 @@
               })            
         }
 
-
         auth.onAuthStateChanged(user =>{         
           if(user){
             document.getElementById("register").classList = "d-none "; 
@@ -82,6 +73,4 @@
            admin.innerHTML = user.email;          
           }
         })
-
-       
 
