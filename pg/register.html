@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="">
+
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="../js/vue.js"></script>
@@ -30,18 +31,18 @@
 								<div class="row">
 									<div class="col-6 p-2 d-xs-none " style="border-right: 2px dotted rgb(66, 124, 233);">
 										<div class="row mx-3 ">
-											<span class="col-12 h5 text-uppercase font-weight-bold text-center">welcome To Effectivewing</span>
+											<span class="col-12 h5 text-uppercase font-weight-bold text-center my-font">welcome To Effectivewing</span>
 										</div>
 										<div class="row mx-3 ">
 											<div class="col-12 rounded">
 												<div class="row">
-													<div class="col-12 text-center pt-3 m-0 ">
-														<img style="width: 60%;" class=" p-0 m-0" src="" alt="login"> 
+													<div class="col-12 text-center pt-5 m-0 ">
+														<img style="width: 60%;" class=" p-0 m-0" src="../svg/register.svg" alt="login"> 
 												 
-												</div>
+													</div>
 												</div>
 												<div class="row p-5 ">
-													<div class="col-12 text-muted">
+													<div class="col-12 text-muted font-5 my-font">
 														handlers. Although we can do this easily inside methods, 
 														it would be better if the methods can be purely about data 
 														logic rather than having to deal with DOM event details.
@@ -67,21 +68,12 @@
 									   </div>
 							<div class="px-5 md-form" id="form">
 								<div class="md-form md-bg mt-0 input-with-pre-icon">                                   
-									<p id="err" class="bg-danger text-center rounded p-3" style="display: none;"></p>                                                              
+									<p id="err" class="border border-danger text-center text-danger rounded p-3" style="display: none;"></p>                                                              
 								</div>	
-								<div class="md-form md-bg mt-0 input-with-pre-icon">
-									<i class="fas fa-user-plus input-prefix"></i>
-									<input type="text" id="firstName" class="form-control " name="firstName" value=""  autocomplete="firstName" autofocus>
-									<label for="firstName"></label>
-								
-								  </div>
-		
-								<div class="md-form md-bg mt-0 input-with-pre-icon">
-									<i class="fas fa-user-plus input-prefix"></i>
-									<input type="text" id="lastName" class="form-control " name="lastName" value=""  autocomplete="lastName">
-									<label for="lastName">Last Name</label>
-									
-								  </div>
+								<div class="md-form md-bg">									
+									<input type="text" id="firstName" class="" placeholder="First Name" name="firstName" value=""  autocomplete="firstName" autofocus>
+									<input type="text" id="lastName" class="" placeholder="Last Name" name="lastName" value=""  autocomplete="lastName" autofocus>
+								</div>
 		
 								   <div class="md-form md-bg mt-0 input-with-pre-icon">
 											<i class="fas fa-envelope input-prefix"></i>
@@ -107,23 +99,25 @@
 								
 								  </div> 
 						
-											<div class=" my-3 d-flex justify-content-between">
-												<div class=" ">Register as: </div>
+											<div class=" d-flex  justify-content-between mx-0 px-0" id="userrole">
+
+												<div class=" mt-2 pt-2 pb-1">Register as: </div>
 											
-												<div class="custom-control custom-radio "title="Someone who want to learn new skill">
-													<input type="radio" class="custom-control-input" value="2" id="role1" name="role">
+												<div class="custom-control custom-radio custom-control-inline"title="Someone who want to learn new skill">													
+													<input type="radio" class="custom-control-input mr-3" value="2" id="role1" name="role">
 													<label class="custom-control-label" for="role1">Student</label>
-											  
 												</div>
 											 
-												<div class=" custom-control custom-radio" title="Someone who create courses and teach">
+												<div class="custom-control custom-radio custom-control-inline" title="Someone who create courses and teach">
 													<input type="radio" class="custom-control-input" value="4" id="role2" name="role">
-													<label class="custom-control-label" for="role2">Instructor</label>
+													<label class="custom-control-label " for="role2">Teacher</label>
 												</div>
 											</div>
+
+											
 										
 									
-								  <div class="row">
+								  <div class="row mt-4">
 									<div class="col-12 text-center">
 									 <button type="submit" class="btn btn-sm blue-gradient rounded px-5 font-weight-bold" id="submit" onclick="signup()">
 										Sign up
@@ -431,8 +425,6 @@ new Vue({ el: '#head' })
 		}
 		}
 		})
-		
-
 
 	$(document).ready(function(){
   $(window).scroll(function(){
@@ -440,11 +432,9 @@ new Vue({ el: '#head' })
 	  var el = document.getElementById("navbar");
 	  if (scroll > 250) {		  
 		  el.classList="navbar fixed-top navbar-expand-lg navbar-light bg-white  scrolling-navbar ";
-	   // $("#navbar").css("background" , "blue");
 	  }
 	   else if (scroll < 250) {
-		el.classList="navbar fixed-top navbar-expand-lg navbar-light bg-white scrolling-navbar shadow-none";
-		 // $("#navbar").css("background" , "red");  	
+		el.classList="navbar fixed-top navbar-expand-lg navbar-light bg-white scrolling-navbar shadow-none";	
    }
   })
 })

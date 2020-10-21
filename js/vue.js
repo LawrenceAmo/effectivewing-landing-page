@@ -8,12 +8,12 @@ Vue.component('head-links', {
     template: `<span>
     <link rel="stylesheet" href="../css/style.css">
       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Montserrat:300,400,500">
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
           <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
           <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
           <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+          
 
           
 	<link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
@@ -62,19 +62,19 @@ Vue.component('nav-bar', {
                     <a class="nav-link" href="#coursecategory">Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pg/pricing ">Pricing</a>
+                    <a class="nav-link" href="../pg/pricing.html">Pricing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pg/about">About</a>
+                    <a class="nav-link" href="../pg/about.html">About</a>
                 </li>
                 <li class="nav-item d-none">
                     <a href="https://www.facebook.com/effectivewing" class="nav-link">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
-                <li class="nav-item  py-0 " id="login">
+                <li class="nav-item  py-0" id="login">
                     <a href="../pg/signin.html" class="nav-link   ">Log in
-                        <i class="fas fa-user mr-1 "></i>
+                        
                     </a>
                 </li>
                 

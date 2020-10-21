@@ -34,7 +34,7 @@
 		
 						<div class="card-body ">
 								<div class="row">
-									<div class="col-6 p-2 d-xs-none " style="border-right: 2px dotted rgb(66, 124, 233);">
+									<div class="col-6 p-2  " style="border-right: 2px dotted rgb(66, 124, 233);">
 										<div class="row mx-3 ">
 											<span class="col-12 h5 text-uppercase font-weight-bold text-center">welcome BACK</span>
 										</div>
@@ -42,7 +42,7 @@
 											<div class="col-12 rounded">
 												<div class="row">
 													<div class="col-12 text-center pt-3 m-0 ">
-														<img style="width: 60%;" class=" p-0 m-0" src="storage/default/register.png" alt="login"> 
+														<img style="width: 60%;" class=" p-0 m-0" src="../svg/login.svg" alt="login"> 
 												 
 												</div>
 												</div>
@@ -67,11 +67,11 @@
 		
 		
 									</div>
-									<div class="col-6 p-2 pt-0 ">
+									<div class="col-6 p-2 pt-3 ">
 									   <div class="row mb-3 text-center">
 										<span class="h5 col-12 font-weight-bold text-uppercase ">sign in</span>
 									   </div>
-							<div class="px-5 md-form" id="form">
+							<div class="px-5 md-form  pt-4  my-3" id="form">
 
                                         <div class="md-form md-bg mt-0 input-with-pre-icon">                                   
                                             <p id="err" class="border border-danger text-center text-danger rounded p-2" style="display: none;"></p>                                                              
@@ -92,7 +92,7 @@
 									<label for="password">Password</label>								
 								  </div> 
 									
-								  <div class="row">
+								  <div class="row mt-5">
 									<div class="col-12 text-center">
 									 <button type="submit" class="btn btn-sm blue-gradient rounded px-5 font-weight-bold" id="submit" onclick="signin()">
 										Sign In
@@ -304,9 +304,9 @@
         <script src="../js/firebase.js"></script>
     
     <script>
-new Vue({ el: '#head' })
-  new Vue({ el: '#navbar' })
-  new Vue({ el: '#footer' })
+	new Vue({ el: '#head' })
+  	new Vue({ el: '#navbar' })
+  	new Vue({ el: '#footer' })
 
 
   auth.onAuthStateChanged(user =>{         
