@@ -13,13 +13,20 @@
   }
   @media only screen and (max-width: 650px) {
     .logintext {
-      display: none;
-    
+      display: none;    
+    }
+    body{
+      margin: 0px;
+      padding: 0px;
     }
     .logininput{
       width: 100% !important;
       
       margin: 0px;
   
+    }
+    #login{
+      
+      margin-top: 20px;
     }
   }

@@ -352,6 +352,18 @@
 new Vue({ el: '#head' })
   new Vue({ el: '#navbar' })
 
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const referrals = urlParams.get('rfl');
+  if(referrals === null){
+	console.log("No Referrals");
+  }else{
+	console.log(`Referrals : ${referrals}`);
+  }
+ 
+
+
   auth.onAuthStateChanged(user =>{         
 		 if(user){            
 			window.location.replace("../pg/user.html");
