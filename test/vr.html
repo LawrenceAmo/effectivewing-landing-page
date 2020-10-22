@@ -111,41 +111,47 @@ function talk() {
 function readOutLoud(message) {
     const speech = new SpeechSynthesisUtterance();
     var ans = document.getElementById("ans");
- 
+ //var myans ="";
         speech.text = message;//+" I dont know what you mean, please try again";
    
     if (message.includes('how are you')) {
-        const finalText = greetings[Math.floor(Math.random() * greetings.length)]
-        speech.text = finalText;
+        var myans = greetings[Math.floor(Math.random() * greetings.length)]
+        speech.text = myans;
     }
     if (message.includes('say to my girlfriend')) {  
         const finalText = her[Math.floor(Math.random() * her.length)]  
-        const fText = intro[Math.floor(Math.random() * intro.length)]      
-        speech.text = fText+' '+finalText+'. ok thats all, I hope you liked it. thank you';
+        const fText = intro[Math.floor(Math.random() * intro.length)]   
+        var myans =  ' '+fText+' \" '+finalText+' \". ok thats all, I hope you liked it. thank you';
+        speech.text = myans;
     }
     if (message.includes('hello')) {
-        const finalText = hello[Math.floor(Math.random() * hello.length)]
-        speech.text = finalText;
+        var myans = hello[Math.floor(Math.random() * hello.length)]
+        speech.text = myans;
     }
     if (message.includes('your name')) {
-          speech.text = "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
+        var myans = "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
+          speech.text = myans;
     }
     if (message.includes('thank you')) {
-          speech.text = "You are welcome.";
+        var myans =  "You are welcome.";
+          speech.text = myans;
     }
     if (message.includes('go back')) {
-        speech.text = "Ok sharp. I will go back now";
+        var myans = "Ok sharp. I will go back now";
+        speech.text = myans
         setTimeout(function(){
             window.location.replace("../index.html");  
          }, 4000);       
     }
 
-    const selectedeVoice = select_voice.selectedOptions[0].getAttribute('data-name'); // get selected voice
+       // /console.error();
 
+    const selectedeVoice = select_voice.selectedOptions[0].getAttribute('data-name'); // get selected voice
 
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
+    ans.textContent =myans; 
 
   //  speech.voice = 'Google US English';
     voices.forEach(voice =>{ // set the voice
@@ -153,12 +159,8 @@ function readOutLoud(message) {
             speech.voice = voice;
         }
     })
-
-    ans.textContent =text;
   
     window.speechSynthesis.speak(speech);
-    
-    
 }
     </script>
 </body>

@@ -103,7 +103,7 @@ function readOutLoud(message) {
         speech.text = message;//+" I dont know what you mean, please try again";
    
     if (message.includes('how are you')) {
-        text = greetings[Math.floor(Math.random() * greetings.length)]
+        const  text = greetings[Math.floor(Math.random() * greetings.length)]
         speech.text = text;
     }
     if (message.includes('hello')) {
@@ -111,19 +111,20 @@ function readOutLoud(message) {
         speech.text = text;
     }
     if (message.includes('your name')) {
-        text =  "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
+        const text =  "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
           speech.text =text;
     }
     if (message.includes('say to my girlfriend')) {  
         const finalText = her[Math.floor(Math.random() * her.length)]  
-        const fText = intro[Math.floor(Math.random() * intro.length)]      
-        speech.text = fText+' '+finalText+'. ok thats all, I hope you liked it. thank you';
+        const fText = intro[Math.floor(Math.random() * intro.length)]  
+        const text =  fText+' '+finalText+'. ok thats all, I hope you liked it. thank you';  
+        speech.text = text;
     }
     if (message.includes('thank you')) {
           speech.text = "You are welcome.";
     }
     if (message.includes('go back')) {
-        text = "Ok sharp. I will go back now";
+     const   text = "Ok sharp. I will go back now";
         speech.text =text;
         setTimeout(function(){
             window.location.replace("../index.html");  
