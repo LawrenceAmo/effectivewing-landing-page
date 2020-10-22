@@ -17,9 +17,13 @@
 
 <div class="row my-5">
     <div class="col-12 border rounded p-5 text-center">
-        <button id="talk" onclick="talk()" class="btn btn-sm btn-info btn-outline-info rounded">talk</button> <br>
+        <div class="d-flex justify-content-center">
+            <button id="talk" onclick="talk()" class="btn btn-sm btn-info btn-outline-info rounded mr-5">talk</button>
+            <div class="form"><select name="select-voice" id="voice"></select></div>
+           </div><br>
         <p class="" id="rec"></p>
         <p class="border mx-auto rounded p-3 mt-5 w-50" id="content"></p>
+        <p class="border mx-auto rounded p-3 mt-5 w-50" id="ans"></p>
     </div>
 </div>
 <!-- Footer -->
@@ -29,12 +33,45 @@
 <script>
 var content = document.getElementById("content");
 var rec = document.getElementById("rec");
+var ans = document.getElementById("ans");
+var select_voice = document.getElementById("voice");
+
 
 const greetings = ['I am fine, how are you','I am doing well, what about you?'];
 const hello = ['Hello','Hi','Hey'];
-
+const her = [
+    'Before I met you, I didn’t think love was for me. It was something other people had and felt. Something in movies and in TV shows. It felt more like a wish I had then something real. Now that I’m with you, love is so much more tangible. It’s something I can reach out and touch. It’s so much more than a wish or a hope (though it does give me hope, for so many things), it’s the very real, wonderful person I wake up to. The warm hand next to mine, the brush of hair against my cheek. I love you and because of that love I love so much more than you. I love myself and the world in a way I never thought possible. You’ve made that possible for me. You’ve made everything possible.',
+    'Sometimes when I look at the ocean or an especially large mountain range, I feel overwhelmed and small, but in a good way. It’s comforting to know there’s something out there bigger than I am. Something large and enduring that has lasted through the ages. Through harsh weather, storms and droughts, through changes in history and climate, the ocean keeps on rolling and the mountains keep on standing tall. When I think of you and our love and how I feel about you, I feel the same way. My love for you doesn’t make me feel small though, it makes me feel powerful and new. I look at you and I know that I will love you forever, through storms and droughts, through all the changes that will undoubtedly come our way. I will love you forever. There’s no changing that. ',
+    'I wanted to take the time to tell you just how much you mean to me. You’ve become a rock in my life, something solid and secure I can lean on. Knowing you’re by my side makes me so eternally grateful, I can hardly put it to words. I had felt happiness before, but nothing prepared me for the happiness I feel when I’m with you. I don’t know what I said or did that made me lucky enough to deserve you, but I will spend the rest of my life trying to be the best man I can be so that you can be proud. Thank you for all that you do and have done for me. You have taught me what it is to love. You’ve showed me how beautiful life can be.',
+    'They say the heart wants what it wants and there’s no logic to such things. It’s a little crazy, my love for you. Sometimes it makes me so happy and giddy, it’s like I’m a little boy or on some drug. You make me feel like I can do anything and I am so happy to be with you. Thank you for being the wonderful, amazing person that you are. You surprise me everyday and you warm my heart every night. I am the person I am today because you’ve loved me and helped me love. You are amazing.',
+    'You’ve lit a fire in me. It’s a passion that grows with each passing day. Just when I think I get used to my love for you, you’ll do something small and amazing. Maybe you’ll make me laugh, or say something so smart it makes me see the world in a new way, and suddenly there it is again—that rush of emotion, of love, that comes over me so swiftly it’s like a wildfire in my soul. I hope you know how much you mean to me, how much I love you, and how excited I am to walk through this life with you.',
+    'Before I met you, I was doing fine. And I thought doing fine was the best it was ever going to get for me. I lived a decent life and I was a decent man. I tried my best. But there was always something missing, some emptiness inside of me, a wanting I didn’t understand. There was a hole in me. I didn’t know that happiness like what we have now even existed. I think of my life now, how it is with you, and you’ve filled that hole. You are the missing part of me. With you I finally feel whole. I am so much more than fine. I am so full of love for you. I love you so much. You make my life complete.'
+];
+const intro = ['Ok, let me read for you. please listen carefull',
+                'Oh! you dont know what to say to your girlfriend? let me tell you what to say. ',
+                 'I didn\'t know that you are such a dump man, that doesn\'t know hoe to impress his girlfriend. listen when i read for you. '];
+var voice= [];
 const SpeechRecognition = Window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
+
+const synth = window.speechSynthesis;
+
+function getVoices(){
+
+voices = synth.getVoices();
+voices.forEach( vc =>{
+    var option = document.createElement("option");
+    option.textContent = vc.name +`( ${vc.lang} )`;
+    option.setAttribute('data-name', vc.name);
+    option.setAttribute('data-lang', vc.lang);
+    select_voice.appendChild(option);
+})
+}
+
+if(synth.onvoiceschanged !== undefined){
+    synth.onvoiceschanged = getVoices;
+}
+
 
 recognition.onstart = function(){
     rec.textContent ="Voice is activated...";
@@ -61,32 +98,50 @@ setInterval(function(){
 
 function readOutLoud(message) {
     const speech = new SpeechSynthesisUtterance();
-    if (message.includes('Siri')) {
-
+  //  if (message.includes('Siri')) {
+    var ans = document.getElementById("ans");
         speech.text = message;//+" I dont know what you mean, please try again";
    
     if (message.includes('how are you')) {
-        const finalText = greetings[Math.floor(Math.random() * greetings.length)]
-        speech.text = finalText;
+        text = greetings[Math.floor(Math.random() * greetings.length)]
+        speech.text = text;
     }
     if (message.includes('hello')) {
-        const finalText = hello[Math.floor(Math.random() * hello.length)]
-        speech.text = finalText;
+        const text = hello[Math.floor(Math.random() * hello.length)]
+        speech.text = text;
     }
     if (message.includes('your name')) {
-          speech.text = "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
+        text =  "My name is Amo. But when you want to talk to me you can call me Siri. So can you tell me your name too?";
+          speech.text =text;
+    }
+    if (message.includes('say to my girlfriend')) {  
+        const finalText = her[Math.floor(Math.random() * her.length)]  
+        const fText = intro[Math.floor(Math.random() * intro.length)]      
+        speech.text = fText+' '+finalText+'. ok thats all, I hope you liked it. thank you';
+    }
+    if (message.includes('thank you')) {
+          speech.text = "You are welcome.";
     }
     if (message.includes('go back')) {
-        speech.text = "Ok sharp. I will go back now";
+        text = "Ok sharp. I will go back now";
+        speech.text =text;
         setTimeout(function(){
             window.location.replace("../index.html");  
          }, 4000);       
     }
-}
+
+    const selectedeVoice = select_voice.selectedOptions[0].getAttribute('data-name'); // get selected voice
+   // speech.voice = 'Google US English';
+    voices.forEach(voice =>{ // set the voice
+        if(voice.name === selectedeVoice){
+            speech.voice = voice;
+        }
+    })
+
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
-
+    ans.textContent =text;
     window.speechSynthesis.speak(speech);
     
     

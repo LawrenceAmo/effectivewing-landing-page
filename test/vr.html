@@ -22,9 +22,12 @@
 <main class="row m-3 rounded white p-5 ">
 <div class="col-12 text-center border rounded p-4">
     <video src="" class="border rounded" autoplay muted width="700" height="400" id="video"></video> <br> <br>
-    <button id="talk" onclick="talk()" class="btn btn-sm btn-info btn-outline-info rounded">talk</button> <br>
+   <div class="d-flex justify-content-center">
+    <button id="talk" onclick="talk()" class="btn btn-sm btn-info btn-outline-info rounded mr-5">talk</button><div class="form"><select name="select-voice" id="voice"></select></div>
+   </div> <br>
         <p class="" id="rec"></p>
         <p class="border mx-auto rounded p-3 mt-4 w-50" id="content"></p>
+        <p class="border mx-auto rounded p-3 mt-4 w-50" id="ans"></p>
 </div>
 
 </main>
@@ -49,6 +52,8 @@ startVideo();
 
 var content = document.getElementById("content");
 var rec = document.getElementById("rec");
+var ans = document.getElementById("ans");
+var select_voice = document.getElementById("voice");
 
 const greetings = ['I am fine, how are you','I am doing well, what about you?'];
 const hello = ['Hello','Hi','Hey'];
@@ -63,18 +68,34 @@ const her = [
 const intro = ['Ok, let me read for you. please listen carefull',
                 'Oh! you dont know what to say to your girlfriend? let me tell you what to say. ',
                  'I didn\'t know that you are such a dump man, that doesn\'t know hoe to impress his girlfriend. listen when i read for you. '];
-
+var voice= [];
 const SpeechRecognition = Window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
+const synth = window.speechSynthesis;
 
+function getVoices(){
+
+voices = synth.getVoices();
+voices.forEach( vc =>{
+    var option = document.createElement("option");
+    option.textContent = vc.name +`( ${vc.lang} )`;
+    option.setAttribute('data-name', vc.name);
+    option.setAttribute('data-lang', vc.lang);
+    select_voice.appendChild(option);
+})
+}
+
+if(synth.onvoiceschanged !== undefined){
+    synth.onvoiceschanged = getVoices;
+}
 recognition.onstart = function(){
     rec.textContent ="Voice is activated...";
-   // console.log("Voice is activated");
 }
 
 recognition.onspeechend = function () {
     rec.textContent ="";
 }
+
 recognition.onresult = function (event) {
    const current = event.resultIndex;
    const transcript = event.results[current][0].transcript;
@@ -86,14 +107,11 @@ function talk() {
     recognition.start();
 }
 
-setInterval(function(){ 
-   ////
-}, 4000);
 
 function readOutLoud(message) {
     const speech = new SpeechSynthesisUtterance();
-   // if (message.includes('Siri')) {
-
+    var ans = document.getElementById("ans");
+ 
         speech.text = message;//+" I dont know what you mean, please try again";
    
     if (message.includes('how are you')) {
@@ -122,10 +140,22 @@ function readOutLoud(message) {
          }, 4000);       
     }
 
+    const selectedeVoice = select_voice.selectedOptions[0].getAttribute('data-name'); // get selected voice
+
+
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
 
+  //  speech.voice = 'Google US English';
+    voices.forEach(voice =>{ // set the voice
+        if(voice.name === selectedeVoice){
+            speech.voice = voice;
+        }
+    })
+
+    ans.textContent =text;
+  
     window.speechSynthesis.speak(speech);
     
     
