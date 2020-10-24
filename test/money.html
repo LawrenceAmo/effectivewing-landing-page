@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Effectivewing</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <span id="head">
+        <head-links></head-links>
+    </span>
+</head>
+
+<body class="">
+    <div id="app">
+        <header class="" id="navbar">
+            <nav-bar></nav-bar>
+
+        </header>
+            <main class="container mt-5 pt-5" id="myApp">
+              <div class="row pt-3 d-none">
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <img src="../svg/world.svg" alt="" class="" sizes="90%" width="250" height="400" srcset="">
+                    </div>
+                    <div class="col-md-6 pt-5">
+                        <strong class="h3 my-font font-weight-bold mt-5">hello world</strong>
+                    </div>
+                </div>
+                <div class="row pt-3">
+
+                    <div class="col-md-6 pt-5">
+                        <strong class="h3 my-font font-weight-bold mt-5">
+                            <button v-on:click="money" class="btn btn-sm btn-outline-blue-grey rounded">button</button>
+                        </strong> <br>
+
+                        <ul class=" border border-info rounded p-3 mx-auto mt-3" id="data" ></ul>
+                        
+                   </div>
+                </div>
+                <hr>
+            </main>           
+    </div>
+            <script>
+                new Vue({ el: '#head' })
+                new Vue({ el: '#navbar' })
+                var app5 = new Vue({
+                    el: '#app',
+                    data: {
+                        message: 'Hello Amo!'
+                    },
+                    methods: {
+                        money: function () {
+                            var ul = document.getElementById("data");                       
+                            axios.get('https://api.exchangerate.host/latest?base=USD')
+                                 .then(function (response) { 
+                                     var data = response.data.rates;              
+                                     
+                                        for (var i = 0; i < 10; i++) {                                       
+                                        var li = document.createElement("li");
+                                         li.innerHTML = data.AED
+                                         console.log(data[i]);
+                                        }                            
+                               
+                                
+                                    ul.appendChild(li);
+                                
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
+
+                        }
+                    }
+                })
+            </script>
+</body>
+
+</html>
