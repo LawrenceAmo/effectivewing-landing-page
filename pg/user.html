@@ -87,15 +87,30 @@
     .content{
       position: absolute;
       width: 95% !important;
+      display: flex !important;
+     flex-direction: column !important; 
       margin-left: 0px;
       margin-right: 5px;
       margin-top: 600px;
       margin-bottom: 100px;  
     }
     .contenttop{
-      display:flex;
-      flex-direction: column;
+      border-radius: 10px;
+      width: 100%;
+      margin-top: 35px;
+      padding-right: 10px;
     }
+    .card-top {            
+      width: 100%;      
+    }
+    .top-cards{
+      width: 100%;       
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding-right: 10px;
+    }
+    
     .welcome{
       display: none;
     }
@@ -148,16 +163,17 @@
       </div>
 <div class="content pl-2">
 <div class="contenttop">
-  <div class="row  mx-0">
+  <div class="row  mx-0 welcome">
     <div class="ml-3 pl-2 h3 welcome"> Hello <span id="welcome"></span></div>  
-  </div>
- <div class=" d-flex justify-content-between align-items-stretch rounded">  
+  </div> <br>
+ <div class=" top-cards d-flex justify-content-between  rounded">  
     <!--Card Primary     d-flex align-items-stretch  -->
    
-   <div class="card card-body">
+   <div class=" card card-top card-body">
     <h4 class="card-title">For Students <i class="far fa-hearts text-danger ml-3"></i></h4>
-    <p class="card-text"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-       laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
+    <p class="card-text"> Sed ut perspicia dfrg fh rgfhb rtfh gfhbfgh rthb trf ht fhb trfh rg htr   trhbr gh  <br> tis unde omnis iste natus error sit voluptatem accusantium doloremque
+       laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et <br>
+        quasi architecto beatae vitae 
        dicta suntant. Neque porro quisquam est, qu.</p>
     <div class="flex-row">
       <a class="card-link">Card link</a>
@@ -168,7 +184,7 @@
    <!--/.Card Primary-->  
   
    
-      <div class="card card-body">
+      <div class="  card card-top  card-body">
        <h4 class="card-title">for teachers & coacher <i class="far fa-hearts ml-3"></i></h4>
        <p class="card-text"> Duis aute irure ptate velit esse cillum dolore eu
          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
