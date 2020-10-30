@@ -18,27 +18,31 @@
               var email = document.getElementById("email").value;
               var password = document.getElementById("password").value;
               var first_name = document.getElementById("firstName").value;
-              var last_name = document.getElementById("lastName").value;
-              //var role = document.getElementById("role").value;
+              var last_name = document.getElementById("lastName").value;              
               var cd = Date.now();
 
+              let userInfo =    db.collection('User').add({                  
+                                  firstName: first_name,
+                                  lastName: last_name,
+                                  balance: 0,
+                                  referrals: 0,
+                                  uid: '',
+                                  email: email,
+                                  coin: 300,
+                                  code: cd
+                                })
+
                   auth.createUserWithEmailAndPassword(email, password).then(cred =>{
-                  sessionStorage.setItem("email", email);               
+                   userInfo();
+                   sessionStorage.setItem("email", email); 
+                                
                     }).catch(err =>{
                       document.getElementById("err").innerHTML = err.message;
                       document.getElementById("err").style.display = "block";
                     })                          
+             
               
-              db.collection('User').add({                  
-                firstName: first_name,
-                lastName: last_name,
-                balance: 0,
-                referrals: 0,
-                uid: '',
-                email: email,
-                coin: 300,
-                code: cd
-              })        
+              
           }
 
           /// Log out
