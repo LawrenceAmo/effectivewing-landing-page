@@ -6,7 +6,7 @@ Vue.component('head-links', {
       }
     },
     template: `<span>
-    <link rel="stylesheet" href="../css/style.css">
+    
       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Montserrat:300,400,500">
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -17,7 +17,8 @@ Vue.component('head-links', {
 
           
 	<link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" sizes="" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" sizes="" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
 
   </span>`
   })

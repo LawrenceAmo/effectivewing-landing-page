@@ -1,5 +1,12 @@
 
-
+ body{
+  font-family: Montserrat, sans-serif;
+  font-weight: 550;
+}
+.navbar{
+  font-weight: 550;
+  font-size: 1.05rem;
+}
  .my-font{
     font-family: Montserrat, sans-serif;
     font-weight: 500;
