@@ -252,12 +252,9 @@ function userData(data){
           }
         })
 
-        db.collection('User').where('email', '==', email).get().then(ans =>{
-         
+        db.collection('User').where('email', '==', email).get().then(ans =>{         
          ans.docs.forEach(data => {
-
          userData(data);
-
          });         
         }).catch(err =>{
             console.log(err);
