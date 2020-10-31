@@ -246,9 +246,7 @@ function userData(data){
      auth.onAuthStateChanged(user =>{
          
           if(user){                      
-            document.getElementById("user").innerHTML = user.email;
-            
-           // sessionStorage.setItem("email", user.email);
+            document.getElementById("user").innerHTML = user.email;            
           }else{
             window.location.replace("../index.html");
           }

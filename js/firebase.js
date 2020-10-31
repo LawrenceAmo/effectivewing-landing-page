@@ -17,29 +17,35 @@
           function signup() {
               var email = document.getElementById("email").value;
               var password = document.getElementById("password").value;
+              var con_pass = document.getElementById("password_confirmation").value;
               var first_name = document.getElementById("firstName").value;
               var last_name = document.getElementById("lastName").value;              
               var cd = Date.now();
 
-              let userInfo =    db.collection('User').add({                  
-                                  firstName: first_name,
-                                  lastName: last_name,
-                                  balance: 0,
-                                  referrals: 0,
-                                  uid: '',
-                                  email: email,
-                                  coin: 300,
-                                  code: cd
-                                })
+              if (password === con_pass ) {
+                        let userInfo =    db.collection('User').add({                  
+                          firstName: first_name,
+                          lastName: last_name,
+                          balance: 0,
+                          referrals: 0,
+                          uid: '',
+                          email: email,
+                          coin: 300,
+                          code: cd
+                        })
 
-                  auth.createUserWithEmailAndPassword(email, password).then(cred =>{
-                   userInfo();
-                   sessionStorage.setItem("email", email); 
-                                
-                    }).catch(err =>{
-                      document.getElementById("err").innerHTML = err.message;
-                      document.getElementById("err").style.display = "block";
-                    })                          
+                        auth.createUserWithEmailAndPassword(email, password).then(cred =>{
+                        userInfo();
+                        sessionStorage.setItem("email", email); 
+
+                          }).catch(err =>{
+                            document.getElementById("err").innerHTML = err.message;
+                            document.getElementById("err").style.display = "block";
+                          })
+              } else {
+                            document.getElementById("err").innerHTML = "Password do not match";
+                            document.getElementById("err").style.display = "block";
+              }                          
              
               
               
