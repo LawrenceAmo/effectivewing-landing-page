@@ -124,6 +124,10 @@
   <header class=""id="navbar">
     <nav-bar></nav-bar>
   </header> 
+  <script>
+       new Vue({ el: '#head' })
+  new Vue({ el: '#navbar' })
+  </script>
 <section>
   <div class="sidebar">
         <div class="card z-depth-2" style="height: 75vh;">
@@ -226,8 +230,7 @@
 <script src="../js/firebase.js"></script>
 
 <script>
-   new Vue({ el: '#head' })
-  new Vue({ el: '#navbar' })
+
 //  document.getElementById("test").innerHTML = sessionStorage.getItem("email");
 
 function userData(data){

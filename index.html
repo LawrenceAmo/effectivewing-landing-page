@@ -19,10 +19,11 @@
 		//require('dotenv').config();
 	</script>
 	<!-- <link rel="manifest" href="/manifest.webmanifest"> -->
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script   src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script   type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script   src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="../js/vue.js"></script>
+
 	<span id="head">
 		<head-links></head-links>
 	</span>
@@ -172,7 +173,10 @@
 			<nav-bar></nav-bar>
 
 		</header>
-
+		<script>
+			new Vue({ el: '#head' })
+			new Vue({ el: '#navbar' });
+		</script>
 		<main>
 			<!-- Full Page Intro -->
 			<div class="view full-page-intro  lighten-5 pb-3 h-100 ">
@@ -2953,8 +2957,7 @@
 
 	<script>
 		//const axios = require('axios').default;
-		new Vue({ el: '#head' })
-		new Vue({ el: '#navbar' });
+		
 
 		axios.get('test.json').then(ans => {            // function that return's the success responce              
 			const key = ans.data.apikey;
