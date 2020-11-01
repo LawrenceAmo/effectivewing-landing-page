@@ -9,8 +9,7 @@
 	<meta property="og:title" content="Online Courses - Effective Wing">
 	<meta property="og:site_name" content=" Effective Wing ">
 	<meta property="og:url" content="https://effectivewing.com/">
-	<meta name="description"
-		content="Our expanding offering of online courses allows 
+	<meta name="description" content="Our expanding offering of online courses allows 
 	you to conveniently gain knowledge and skills in the career you love. Find the right course for you. Also if
 	 you a creater or have any skill, come and create course or coach thausands of students around the world.">
 	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -2961,7 +2960,7 @@
 
 		axios.get('test.json').then(ans => {            // function that return's the success responce              
 			const key = ans.data.apikey;
-			console.log(key);
+			//console.log(key);
 		});
 
 
@@ -2994,7 +2993,7 @@
 						}
 					})
 						.catch(function (error) {
-							console.log(error);
+							//console.log(error);
 						});
 				},
 				////////////////////////////////////////////////////////////////////////
@@ -3050,6 +3049,48 @@
 				admin.innerHTML = user.email;
 			}
 		})
+		///////////////////////////////////////////////////////////
+		var visit = "";
+		var json = "";
+		var ip = "";
+		const date = new Date();
+
+		const visit_add = async () => {
+			try {
+				const response = await fetch('https://freegeoip.app/json/');
+				const data = await response.json();
+				json = JSON.stringify(data);
+				visit = data.ip;
+			} catch (error) {
+				return false;
+			}
+		}
+
+		visit_add();
+
+		setTimeout(() => {
+			db.collection('visiters').where('ip', '==', visit).get().then(ans => {
+				ans.docs.forEach(data => {
+					if (data.data().ip) {
+						ip = data.data().ip;
+					}
+				});
+			})
+
+			setTimeout(() => {
+				if (ip === "") {
+					var visit_info = JSON.stringify(json);
+					db.collection('visiters').add({
+						ip: visit,
+						visit_info: visit_info,
+						date: date
+					})
+				} else if (ip != "") {
+					return false;
+				}
+			}, 1000);
+		}, 3000);
+
 
 		//$(document).ready(function () {
 		$(window).scroll(function () {

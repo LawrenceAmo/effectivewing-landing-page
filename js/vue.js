@@ -108,16 +108,19 @@ Vue.component('nav-bar', {
   })
 
 
+setTimeout(() => {
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        var el = document.getElementById("navbar-scroll");
+        if (scroll > 200) {
+            el.classList = "navbar fixed-top navbar-expand-lg navbar-light bg-white  scrolling-navbar border-bottom border-info";
+            // $("#navbar").css("background" , "blue");
+        }
+        else if (scroll < 250) {
+            el.classList = "navbar fixed-top navbar-expand-lg navbar-light bg-white scrolling-navbar shadow-none";
+            // $("#navbar").css("background" , "red");  	
+        }
+    })
+}, 500);
 
-  $(window).scroll(function () {
-				var scroll = $(window).scrollTop();
-				var el = document.getElementById("navbar-scroll");
-				if (scroll > 200) {
-					el.classList = "navbar fixed-top navbar-expand-lg navbar-light bg-white  scrolling-navbar border-bottom border-info";
-					// $("#navbar").css("background" , "blue");
-				}
-				else if (scroll < 250) {
-					el.classList = "navbar fixed-top navbar-expand-lg navbar-light bg-white scrolling-navbar shadow-none";
-					// $("#navbar").css("background" , "red");  	
-				}
-			})
+ 

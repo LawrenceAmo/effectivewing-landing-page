@@ -270,21 +270,47 @@ function userData(data){
 //  https://www.validator.pizza/email/info@effectivewing.com      :count requeat
 
 
-async function ipcheck(){
+const emailcheck = async  () => {
  try {
-  const response = await fetch('https://www.validator.pizza/email/inlfo@effectivewing.com');
+  const response = await fetch('https://api.eva.pingutil.com/email?email=info@effectivewing.com');
  const data = await response.json();  
  console.log(data);
  console.log('');
- //console.log(data.country_name);
-
+ console.log(data.data.disposable);
  } catch (error) {
   console.error(error);
  }
  
 }
 
-ipcheck();
+const ipcheck = async  () => {
+ try {
+  const response = await fetch('https://iplist.cc/api/');
+ const data = await response.json();  
+ console.log(data);
+ console.log('');
+ console.log(data.ip);
+ } catch (error) {
+  console.error(error);
+ }
+ 
+}
+const ipcheck2 = async  () => {
+ try {
+  const response = await fetch('https://freegeoip.app/json/');
+ const data = await response.json(); 
+ var json = JSON.stringify(data); 
+ console.log(json);
+
+ console.log(data.ip);
+ } catch (error) {
+  console.error(error);
+ }
+ 
+}
+//emailcheck();
+//ipcheck();
+ipcheck2();
 
 
 
