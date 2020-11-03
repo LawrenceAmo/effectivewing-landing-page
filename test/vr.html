@@ -254,6 +254,7 @@ function readOutLoud(message) {
         speech.text = message;//+" I dont know what you mean, please try again";
 
         var mycity = "";
+        var anstxt ="";
 
         function cityname(message) {
                 var string = message.split(" ");
@@ -345,15 +346,19 @@ function readOutLoud(message) {
                 var str = message;
                 var string = str.split(" ");
                 var txt = "";
-                var myans = "I don't know what do you mean. but I will search in google right now. hopefully google will answer you";
+                var myans = "I don't get relevent answer for your question. but I will search in google right now. \
+                                   Here are the questions that you can ask. ";
                 speech.text = myans
                 string.forEach(myFunction);
                 function myFunction(value) {
                     txt = txt + value + "+";
-                }
+                }                   
                setTimeout(() => {
                 window.open(`https://www.google.com/search?q=${txt}`);
-               }, 7000);
+               }, 9000);
+               console.log(txt);
+               anstxt += "  You can ask about your IP Address, Country, City, Region, Your weather, The weather for any city or town";
+
    }
 
        // /console.error();
@@ -362,8 +367,9 @@ function readOutLoud(message) {
 
     speech.volume = 1;
     speech.rate = 1;
-    speech.pitch = 1;
-    ans.textContent =myans; 
+    speech.pitch = 1;  
+    ans.textContent +=myans; 
+    ans.innerHTML +=" <br><br>"+anstxt; 
   //  speech.voice = 'Google US English';
   
     voices.forEach(voice =>{ // set the voice
