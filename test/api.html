@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Effectivewing</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <span id="head">
+        <head-links></head-links>
+    </span>
+</head>
+
+<body class="">
+    <div id="app">
+        <header class="" id="navbar">
+            <nav-bar></nav-bar>
+
+        </header>
+            <main class="container mt-5 pt-5" id="myApp">
+              <div class="row pt-3 d-none">
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <img src="../svg/world.svg" alt="" class="" sizes="90%" width="250" height="400" srcset="">
+                    </div>
+                    <div class="col-md-6 pt-5">
+                        <strong class="h3 my-font font-weight-bold mt-5">hello world</strong>
+                    </div>
+                </div>
+                <div class="row pt-3">
+
+                    <div class="col-md-6 pt-5">
+                        <strong class="h3 my-font font-weight-bold mt-5">
+                            <button v-on:click="money" class="btn btn-sm btn-outline-blue-grey rounded">button</button>
+                        </strong> <br>
+
+                        <ul class=" border border-info rounded p-3 mx-auto mt-3" id="data" ></ul>
+                        
+                   </div>
+                </div>
+                <hr>
+            </main>           
+    </div>
+            <script>
+                new Vue({ el: '#head' })
+                new Vue({ el: '#navbar' })
+               
+
+
+//                 if (message.includes(message)) {
+//                 var str = message;
+//                 var string = str.split(" ");
+//                 var txt = "";
+//                 var myans = "I don't what do you mean. but I will search in google right now. hopefully google will answer you";
+//                 speech.text = myans
+//                 string.forEach(myFunction);
+//                 function myFunction(value) {
+//                     txt = txt + value + "+";
+//                 }
+//                 window.open(`https://www.google.com/search?q=${txt}`);
+//    }
+var tdate = new Date();
+console.log(tdate.getFullYear());   
+
+   let api = '4d8fb5b93d4af21d66a2948710284366';
+var lat = '';
+var lon = '';
+const ipcheck = async  () => {
+    try {
+     const response = await fetch('https://freegeoip.app/json/');
+    const data = await response.json();  
+    console.log(data);
+   // console.log(data.latitude);
+    lat = data.latitude;
+    lon = data.longitude;
+    } catch (error) {
+     console.error(error);
+    }    
+   }
+   ipcheck();
+var cityname =  "Durban";
+   const weather = async ()=>{
+       try {
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${api}`);
+        const data = await res.json();
+        console.log(data);
+       } catch (error) {
+           console.error(error);
+       }
+   }    
+   // console.log(`lat = ${lat} & lon = ${lon}`);
+
+setTimeout(() => {
+    weather();
+}, 800);
+            </script>
+</body>
+
+</html>
